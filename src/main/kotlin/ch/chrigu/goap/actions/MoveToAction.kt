@@ -1,7 +1,7 @@
 package ch.chrigu.goap.actions
 
-import ch.chrigu.goap.Effects
-import ch.chrigu.goap.Preconditions
+import ch.chrigu.goap.world.Effects
+import ch.chrigu.goap.world.Preconditions
 import ch.chrigu.goap.entities.Agent
 import com.badlogic.gdx.math.Vector2
 

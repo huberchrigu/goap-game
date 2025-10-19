@@ -5,7 +5,8 @@ import ch.chrigu.goap.entities.Agent
 class FleeAction : MoveToAction("Flee", 1f, { enemyVisible }, { copy(enemyVisible = false) }) { // We hope to achieve this
 
     override fun validate(agent: Agent): Boolean {
-        return agent.targetEnemy != null && agent.health <= 40
+        val enemyWeapon = agent.targetEnemy?.currentWeapon
+        return agent.health <= 40 && enemyWeapon != null && enemyWeapon.ammo > 0
     }
 
     override fun perform(agent: Agent): Boolean {

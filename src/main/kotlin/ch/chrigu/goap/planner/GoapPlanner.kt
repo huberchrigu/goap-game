@@ -1,8 +1,14 @@
-package ch.chrigu.goap
+package ch.chrigu.goap.planner
 
+import ch.chrigu.goap.world.Effects
+import ch.chrigu.goap.world.Preconditions
+import ch.chrigu.goap.world.WorldState
 import ch.chrigu.goap.actions.GoapAction
 import ch.chrigu.goap.entities.Agent
-import java.util.*
+import ch.chrigu.goap.goals.GoapGoal
+import java.util.LinkedList
+import java.util.PriorityQueue
+import java.util.Queue
 
 class GoapPlanner {
 

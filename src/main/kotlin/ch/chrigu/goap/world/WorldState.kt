@@ -1,4 +1,4 @@
-package ch.chrigu.goap
+package ch.chrigu.goap.world
 
 /**
  * Represents the state of the world or the conditions of an action.

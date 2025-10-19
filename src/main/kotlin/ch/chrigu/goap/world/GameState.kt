@@ -1,4 +1,4 @@
-package ch.chrigu.goap
+package ch.chrigu.goap.world
 
 import ch.chrigu.goap.entities.Agent
 import ch.chrigu.goap.entities.Projectile

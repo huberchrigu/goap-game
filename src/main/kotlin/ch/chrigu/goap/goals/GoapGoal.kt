@@ -1,5 +1,6 @@
-package ch.chrigu.goap
+package ch.chrigu.goap.goals
 
+import ch.chrigu.goap.world.WorldState
 import ch.chrigu.goap.entities.Agent
 
 /**

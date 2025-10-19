@@ -1,8 +1,8 @@
 package ch.chrigu.goap.actions
 
-import ch.chrigu.goap.Effects
-import ch.chrigu.goap.GameState
-import ch.chrigu.goap.Preconditions
+import ch.chrigu.goap.world.Effects
+import ch.chrigu.goap.world.GameState
+import ch.chrigu.goap.world.Preconditions
 import ch.chrigu.goap.entities.Agent
 import ch.chrigu.goap.entities.WorldObject
 

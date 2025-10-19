@@ -1,9 +1,9 @@
 package ch.chrigu.goap.entities
 
-import ch.chrigu.goap.GameState
-import ch.chrigu.goap.GoapGoal
-import ch.chrigu.goap.GoapPlanner
-import ch.chrigu.goap.WorldState
+import ch.chrigu.goap.world.GameState
+import ch.chrigu.goap.goals.GoapGoal
+import ch.chrigu.goap.planner.GoapPlanner
+import ch.chrigu.goap.world.WorldState
 import ch.chrigu.goap.actions.GoapAction
 import ch.chrigu.goap.actions.WanderAction
 import com.badlogic.gdx.Gdx
@@ -119,7 +119,8 @@ class Agent(
     }
 
     fun createWorldState(gameState: GameState): WorldState {
-        targetEnemy = gameState.agents.firstOrNull { !it.isDead && it.id != this.id && it.position.dst(this.position) < 200f }
+        targetEnemy = gameState.agents.filter { !it.isDead && it.id != this.id && it.position.dst(this.position) < 200f }
+            .randomOrNull()
 
         return WorldState(
             hasWeapon = (currentWeapon != null && currentWeapon!!.ammo > 0),
@@ -203,7 +204,11 @@ class Agent(
     }
 
     private fun spawnOnDeath() {
-        GameState.spawn(WorldObject.Stamina(value = stamina), currentWeapon)
+        listOfNotNull(
+            if (stamina > 0) WorldObject.Stamina(value = stamina) else null,
+            if (currentWeapon == null || currentWeapon!!.ammo == 0) null else currentWeapon,
+            if (food > 0) WorldObject.Food(value = food) else null
+        ).forEach(GameState::spawn)
     }
 
     private fun findNewPlan(gameState: GameState) {
