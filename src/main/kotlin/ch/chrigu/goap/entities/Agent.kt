@@ -161,6 +161,9 @@ class Agent(
             font.draw(spriteBatch, currentWeapon!!.ammo.toString(), position.x + 17, position.y)
             spriteBatch.end()
         }
+        spriteBatch.begin()
+        font.draw(spriteBatch, id.toString().take(4), position.x + 17, position.y + 15)
+        spriteBatch.end()
     }
 
     fun setWeapon(weapon: WorldObject.Weapon) {
